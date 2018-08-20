@@ -1,5 +1,5 @@
 {
-    "name": "linna/doenv",
+    "name": "linna/dotenv",
     "type": "library",
     "description": "Linna .env tool",
     "keywords": [".env", "env", "php"],
