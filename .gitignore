@@ -1,0 +1,6 @@
+composer.phar
+composer.lock
+clover.xml
+infection-log.txt
+summary-log.txt
+vendor/
