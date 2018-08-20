@@ -28,7 +28,7 @@ This package require php 7.1
 ## Installation
 With composer:
 ```
-composer require linna/typed-array
+composer require linna/dotenv
 ```
 
 ## Usage
