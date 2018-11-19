@@ -66,7 +66,10 @@ class DotEnvTest extends TestCase
             ['RETAIN_INNER_QUOTES', '{"foo": "bar"}'],
             ['RETAIN_INNER_QUOTES_AS_STRING', '{"foo": "bar"}'],
             ['INCLUDE_SPACE', 'some spaced out string'],
-            ['USERNAME', 'therealnerdybeast@example.tld']
+            ['USERNAME', 'therealnerdybeast@example.tld'],
+            ['TEST', 'ALFA'],
+            ['TEST_1', 'BETA'],
+            ['TEST_2', 'GAMMA']
          ];
     }
 

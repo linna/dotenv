@@ -72,6 +72,10 @@ class DotEnv
 
             [$key, $value] = explode('=', $line);
 
+            //remove special chars from beninning and end of key values
+            $key = trim($key, " \t\n\r\0\x0B");
+            $value = trim($value, " \t\n\r\0\x0B");
+
             //matches for particula values
             if (array_key_exists(strtolower($value), self::$valuesMatches)) {
                 $value = self::$valuesMatches[strtolower($value)];
