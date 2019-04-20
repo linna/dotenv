@@ -94,7 +94,7 @@ class DotEnvTest extends TestCase
      */
     public function testDefaultValue(): void
     {
-        putenv('FOO=foo');
+        \putenv('FOO=foo');
         $this->assertSame('bar', (new DotEnv())->get('BAR', 'bar'));
     }
 

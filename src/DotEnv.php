@@ -40,7 +40,7 @@ class DotEnv
      */
     public function get(string $key, $default = null)
     {
-        if (($value = getenv($key)) === false) {
+        if (($value = \getenv($key)) === false) {
             return $default;
         }
 
@@ -56,46 +56,46 @@ class DotEnv
      */
     public function load(string $file): bool
     {
-        if (!file_exists($file)) {
+        if (!\file_exists($file)) {
             return false;
         }
 
-        $content = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $content = \file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
         foreach ($content as $line) {
-            $line = rtrim(ltrim($line));
+            $line = \rtrim(\ltrim($line));
 
             //check if the line contains a key value pair
-            if (!preg_match("/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/", $line)) {
+            if (!\preg_match("/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/", $line)) {
                 continue;
             }
 
-            [$key, $value] = explode('=', $line);
+            [$key, $value] = \explode('=', $line);
 
             //remove special chars from beninning and end of key values
-            $key = trim($key, " \t\n\r\0\x0B");
-            $value = trim($value, " \t\n\r\0\x0B");
+            $key = \trim($key, " \t\n\r\0\x0B");
+            $value = \trim($value, " \t\n\r\0\x0B");
 
             //matches for particula values
-            if (array_key_exists(strtolower($value), self::$valuesMatches)) {
-                $value = self::$valuesMatches[strtolower($value)];
-                putenv("{$key}={$value}");
+            if (\array_key_exists(\strtolower($value), self::$valuesMatches)) {
+                $value = self::$valuesMatches[\strtolower($value)];
+                \putenv("{$key}={$value}");
                 continue;
             }
 
             //set to empty value
-            if (strlen($value) === 0) {
-                putenv("{$key}=");
+            if (\strlen($value) === 0) {
+                \putenv("{$key}=");
                 continue;
             }
 
             $edges = $value[0].$value[-1];
 
             if ($edges === "''" || $edges === '""') {
-                $value = substr($value, 1, -1);
+                $value = \substr($value, 1, -1);
             }
 
-            putenv("{$key}={$value}");
+            \putenv("{$key}={$value}");
         }
 
         return true;
