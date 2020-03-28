@@ -37,11 +37,17 @@ class DotEnv
      *
      * @param string $key     Key name
      * @param mixed  $default Default value if key not found
+     *
+     * @return mixed
      */
     public function get(string $key, $default = null)
     {
         if (($value = \getenv($key)) === false) {
             return $default;
+        }
+
+        if (\array_key_exists(\strtolower($value), self::$valuesMatches)) {
+            return self::$valuesMatches[\strtolower($value)];
         }
 
         return $value;
@@ -70,18 +76,11 @@ class DotEnv
                 continue;
             }
 
-            [$key, $value] = \explode('=', $line);
+            [$key, $value] = \explode('=', $line, 2);
 
             //remove special chars from beninning and end of key values
             $key = \trim($key, " \t\n\r\0\x0B");
             $value = \trim($value, " \t\n\r\0\x0B");
-
-            //matches for particula values
-            if (\array_key_exists(\strtolower($value), self::$valuesMatches)) {
-                $value = self::$valuesMatches[\strtolower($value)];
-                \putenv("{$key}={$value}");
-                continue;
-            }
 
             //set to empty value
             if (\strlen($value) === 0) {
@@ -89,15 +88,41 @@ class DotEnv
                 continue;
             }
 
-            $edges = $value[0].$value[-1];
-
-            if ($edges === "''" || $edges === '""') {
-                $value = \substr($value, 1, -1);
-            }
+            //remove single and double quotes
+            $this->unQuote($value);
 
             \putenv("{$key}={$value}");
         }
 
         return true;
+    }
+
+    /**
+     * Remove quotes or double quotes from the begin and the end of a string
+     * 
+     * @param string $value
+     * 
+     * @return void
+     */
+    private function unQuote(string &$value): void
+    {
+        $first = $value[0];
+        $last = $value[-1];
+        $edges = $first.$last;
+
+        //string begin and end with ' or "
+        if ($edges === "''" || $edges === '""') {
+            $value = \substr($value, 1, -1);
+        }
+
+        //string begin with ' or "
+        else if ($first === "'" || $first === '"') {
+            $value = \substr($value, 1);
+        }
+
+        //string end with ' or "
+        else if ($last === "'" || $last === '"') {
+            $value = \substr($value, 0, -1);
+        }
     }
 }

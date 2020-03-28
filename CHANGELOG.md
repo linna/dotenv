@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 * backslash in front of native functions
 * PHP 7.3 support
+* PHP 7.4 support
+* `Linna\DotEnv\DotEnv->get()` return type `void` 
+
+### Fixed
+* the `=` char inside the `value` cause a wrong interpretation of the `key = value` pair
+* `testParticularKeyValue` now use correct `@dataProvider`
 
 ## [v1.0.1](https://github.com/linna/dotenv/compare/v1.0.0...v1.0.1) - 2018-11-19
 
