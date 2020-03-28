@@ -16,6 +16,8 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/linna/dotenv/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/linna/dotenv/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/linna/dotenv/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/linna/dotenv/?branch=master)
 [![StyleCI](https://github.styleci.io/repos/145428565/shield?branch=master&style=flat)](https://github.styleci.io/repos/145428565)
+[![PDS Skeleton](https://img.shields.io/badge/pds-skeleton-blue.svg?style=flat)](https://github.com/php-pds/skeleton)
+[![PHP 7.2](https://img.shields.io/badge/PHP-7.2-8892BF.svg)](http://php.net)
 
 </div>
 
@@ -23,7 +25,7 @@
 This package provide a way to load .env files values as environement variable, it was insiperd by [nodejs counterpart](https://github.com/motdotla/dotenv).
 
 ## Requirements
-This package require php 7.1
+This package require php 7.2
 
 ## Installation
 With composer:
