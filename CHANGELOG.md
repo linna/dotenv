@@ -19,6 +19,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * the `=` char inside the `value` cause a wrong interpretation of the `key = value` pair
 * `testParticularKeyValue` now use correct `@dataProvider`
 
+### Removed
+* PHP 7.1 support
+
 ## [v1.0.1](https://github.com/linna/dotenv/compare/v1.0.0...v1.0.1) - 2018-11-19
 
 ### Fixed

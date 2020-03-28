@@ -99,9 +99,9 @@ class DotEnv
 
     /**
      * Remove quotes or double quotes from the begin and the end of a string
-     * 
+     *
      * @param string $value
-     * 
+     *
      * @return void
      */
     private function unQuote(string &$value): void
@@ -116,12 +116,12 @@ class DotEnv
         }
 
         //string begin with ' or "
-        else if ($first === "'" || $first === '"') {
+        elseif ($first === "'" || $first === '"') {
             $value = \substr($value, 1);
         }
 
         //string end with ' or "
-        else if ($last === "'" || $last === '"') {
+        elseif ($last === "'" || $last === '"') {
             $value = \substr($value, 0, -1);
         }
     }

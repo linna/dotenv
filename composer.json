@@ -15,7 +15,7 @@
         "issues": "https://github.com/linna/dotenv/issues"
     },
     "require": {
-        "php": "^7.1"
+        "php": "^7.2"
     },
     "require-dev": {
         "infection/infection": "^0.15",
