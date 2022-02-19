@@ -3,7 +3,7 @@
 /**
  * Linna Framework.
  *
- * @author Sebastian Rapetti <sebastian.rapetti@alice.it>
+ * @author Sebastian Rapetti <sebastian.rapetti@tim.it>
  * @copyright (c) 2018, Sebastian Rapetti
  * @license http://opensource.org/licenses/MIT MIT License
  */
@@ -19,7 +19,7 @@ namespace Linna\DotEnv;
 class DotEnv
 {
     /**
-     * @var array Matches for particula values
+     * @var array<mixed> Matches for particula values
      */
     private static $valuesMatches = [
         'true' => true,

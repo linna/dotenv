@@ -15,12 +15,12 @@
         "issues": "https://github.com/linna/dotenv/issues"
     },
     "require": {
-        "php": "^7.2"
+        "php": ">=7.2"
     },
     "require-dev": {
-        "infection/infection": "^0.15",
-        "phpstan/phpstan": "^0.12",
-        "phpunit/phpunit": "^9.0"
+        "infection/infection": ">=0.26",
+        "phpstan/phpstan": ">=1.4",
+        "phpunit/phpunit": ">=9.0"
     },
     "autoload": {
         "psr-4": {
@@ -30,6 +30,12 @@
     "autoload-dev": {
         "psr-4": {
             "Linna\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ocramius/package-versions": true,
+            "infection/extension-installer": true
         }
     }
 }
